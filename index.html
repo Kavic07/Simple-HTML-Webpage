@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Dashboard</title>
+    <style>
+      #output {
+        white-space: pre-wrap;
+        background: #f0f0f0;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>School Teachers Dashboard</h1>
+
+    <button onclick="allTeachers()">All Teachers</button>
+    <button onclick="artTeachers()">Art Teachers</button>
+    <button onclick="allSubjects()">All Subjects</button>
+    <button onClick="averageAge()">Average Teacher Age</button>
+    <button onClick="removeFirst()">Remove First Teacher Record</button>
+    <button onClick="listTeacherNames()">Teacher's Names</button>
+
+    <div id="output"></div>
+
+    <script>
+      let teachers = [
+        { name: "Mr. Tolu", subject: "Maths", age: 36 },
+        { name: "Mrs. Carolina", subject: "English", age: 40 },
+        { name: "Mr. Charles", subject: "CRS", age: 33 },
+        { name: "Mrs. Ada", subject: "Chemistry", age: 45 },
+        { name: "Mr. Seyi", subject: "Biology", age: 39 },
+        { name: "Ms. Opeyemi", subject: "Literature", age: 28 },
+        { name: "Mrs. Evelyn", subject: "Government", age: 34 },
+      ];
+
+      const output = document.getElementById("output");
+
+      const allTeachers = () => {
+        output.textContent = JSON.stringify(teachers, null, 2);
+      };
+
+      const artTeachers = () => {
+        const artSubjects = ["CRS", "Literature", "Government"];
+        const result = teachers.filter((teacher) =>
+          artSubjects.includes(teacher.subject)
+        );
+        output.textContent = JSON.stringify(result, null, 2);
+      };
+
+      const allSubjects = () => {
+        const subjects = teachers.map((teacher) => teacher.subject);
+        output.textContent = `List of all Subjects\n${subjects.join(", ")}`;
+      };
+
+      const averageAge = () => {
+        const totalAge = teachers.reduce(
+          (sum, teacher) => sum + teacher.age,
+          0
+        );
+        const average = totalAge / teachers.length;
+        const roundedAverage = Math.round(average);
+        output.textContent = `Average age of teachers: ${Math.round(
+          average
+        )} years`;
+      };
+
+      const removeFirst = () => {
+        const copy = [...teachers];
+        copy.splice(0, 1);
+        output.textContent = JSON.stringify(copy, null, 2);
+      };
+
+      const listTeacherNames = () => {
+        let teacherNames = "";
+        teachers.forEach((teacher) => {
+          teacherNames += teacher.name + "\n";
+        });
+        output.textContent = `Teacher's Names:\n${teacherNames}`;
+      };
+    </script>
+  </body>
+</html>
