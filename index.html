@@ -4,23 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teacher Dashboard</title>
-    <style>
-      #output {
-        white-space: pre-wrap;
-        background: #f0f0f0;
-        padding: 1rem;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <h1>School Teachers Dashboard</h1>
 
-    <button onclick="allTeachers()">All Teachers</button>
-    <button onclick="artTeachers()">Art Teachers</button>
-    <button onclick="allSubjects()">All Subjects</button>
-    <button onClick="averageAge()">Average Teacher Age</button>
-    <button onClick="removeFirst()">Remove First Teacher Record</button>
-    <button onClick="listTeacherNames()">Teacher's Names</button>
+    <div class="btns">
+      <button onclick="allTeachers()">All Teachers</button>
+      <button onclick="artTeachers()">Art Teachers</button>
+      <button onclick="allSubjects()">All Subjects</button>
+      <button onClick="averageAge()">Average Teacher Age</button>
+      <button onClick="removeFirst()">Remove First Teacher Record</button>
+      <button onClick="listTeacherNames()">Teacher's Names</button>
+    </div>
 
     <div id="output"></div>
 
